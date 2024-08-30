@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     var sliderCounter = 0;
     var sliderContent = [
-        "Pogi",
+        "Elexis Eon Clark",
         "Handsome",
         "Tao",
         "Coder",
