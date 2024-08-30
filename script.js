@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     var sliderCounter = 0;
     var sliderContent = [
         "Elexis Eon Clark",
-        "Handsome",
-        "Tao",
-        "Coder",
+        "an IT student",
+        "a Beginner Web Developer",
+        "a Full-Stack Novice",
     ];
 
     var sliderValue = document.querySelector("#SliderValue");
