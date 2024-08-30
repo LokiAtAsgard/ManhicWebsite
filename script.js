@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var sliderContent = [
         "Elexis Eon Clark",
         "an IT student",
-        "a Beginner Web Developer",
+        "Web Developer Newbie",
         "a Full-Stack Novice",
     ];
 
