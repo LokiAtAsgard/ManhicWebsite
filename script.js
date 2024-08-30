@@ -64,4 +64,29 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('ScrollReveal is not defined. Ensure it is included in your project.');
     }
+
+    // EmailJS Integration
+    emailjs.init("KMl-Jks3_9wo7Im4m"); // Initialize EmailJS with your User ID
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        var formData = {
+            from_name: document.getElementById('fullName').value,
+            from_email: document.getElementById('email').value,
+            phone_number: document.getElementById('phoneNumber').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        emailjs.send('service_h1cmcai', 'template_dsy9ngn', formData)
+            .then(function(response) {
+                console.log('Success:', response);
+                alert('Your message has been sent successfully!');
+                document.getElementById('contactForm').reset(); // Reset form after submission
+            }, function(error) {
+                console.log('Error:', error);
+                alert('Oops! Something went wrong. Please try again.');
+            });
+    });
 });
