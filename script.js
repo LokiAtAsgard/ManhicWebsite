@@ -1,35 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import ScrollReveal from 'scrollreveal';  // Ensure you import ScrollReveal if you're using it
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBzBYrqfl4ysg4hgF4-18s4RkDZNEqki8c",
-    authDomain: "manhicwebsite.firebaseapp.com",
-    projectId: "manhicwebsite",
-    storageBucket: "manhicwebsite.appspot.com",
-    messagingSenderId: "871871386334",
-    appId: "1:871871386334:web:beb757f74a9097a280a84f"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Function to get a list of cities from your database
-async function getCities(db) {
-    const citiesCol = collection(db, 'cities');
-    const citySnapshot = await getDocs(citiesCol);
-    const cityList = citySnapshot.docs.map(doc => doc.data());
-    return cityList;
-}
-
-// Example usage of getCities function
-getCities(db).then(cities => {
-    console.log(cities);
-}).catch(error => {
-    console.error("Error getting cities:", error);
-});
+import ScrollReveal from 'scrollreveal';
 
 var sliderCounter = 0;
 var sliderContent = [
