@@ -1,4 +1,3 @@
-// Version 2 JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     var sliderCounter = 0;
     var sliderContent = [
@@ -76,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
             from_email: document.getElementById('email').value,
             phone_number: document.getElementById('phoneNumber').value,
             subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
+            message: document.getElementById('message').value,
+            
         };
 
         emailjs.send('service_h1cmcai', 'template_dsy9ngn', formData)
