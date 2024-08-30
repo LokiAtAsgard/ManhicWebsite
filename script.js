@@ -1,7 +1,4 @@
-// script.js
 
-import { getCities } from './firebase-config.js';
-import ScrollReveal from 'scrollreveal';  // Ensure you import ScrollReveal if you're using it
 
 var sliderCounter = 0;
 var sliderContent = [
@@ -20,7 +17,7 @@ function slider() {
 
     sliderValue.innerHTML = "";
     sliderValue.classList.remove("holder-animation");
-    void sliderValue.offsetWidth; // Trigger reflow
+    void sliderValue.offsetWidth;
     sliderValue.classList.add("holder-animation");
 
     for (let i = 0; i < sliderContent[sliderCounter].length; i++) {
@@ -56,3 +53,4 @@ const sr = ScrollReveal({
 sr.reveal(".featured-text", {});
 sr.reveal(".home-img", { delay: 100 });
 sr.reveal(".heading", {});
+
