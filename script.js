@@ -1,56 +1,67 @@
+// Version 2 JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    var sliderCounter = 0;
+    var sliderContent = [
+        "Pogi",
+        "Handsome",
+        "Tao",
+        "Coder",
+    ];
 
-import ScrollReveal from 'scrollreveal';
+    var sliderValue = document.querySelector("#SliderValue");
 
-var sliderCounter = 0;
-var sliderContent = [
-    "Pogi",
-    "Handsome",
-    "Tao",
-    "Coder",
-];
-
-var sliderValue = document.querySelector("#SliderValue");
-
-function slider() {
-    if (sliderCounter >= sliderContent.length) {
-        sliderCounter = 0;
-    }
-
-    sliderValue.innerHTML = "";
-    sliderValue.classList.remove("holder-animation");
-    void sliderValue.offsetWidth; // Trigger reflow
-    sliderValue.classList.add("holder-animation");
-
-    for (let i = 0; i < sliderContent[sliderCounter].length; i++) {
-        let letterDiv = document.createElement("div");
-        letterDiv.innerHTML = sliderContent[sliderCounter][i];
-
-        if (letterDiv.innerHTML === "") {
-            letterDiv.innerHTML = "&nbsp;";
+    function slider() {
+        if (sliderCounter >= sliderContent.length) {
+            sliderCounter = 0;
         }
-        letterDiv.classList.add("start");
-        letterDiv.classList.add("animation");
-        letterDiv.style.animationDelay = i / 10 + "s";
-        sliderValue.appendChild(letterDiv);
+
+        sliderValue.innerHTML = "";
+        sliderValue.classList.remove("holder-animation");
+        void sliderValue.offsetWidth; // Triggers reflow for reapplying animation
+        sliderValue.classList.add("holder-animation");
+
+        for (let i = 0; i < sliderContent[sliderCounter].length; i++) {
+            let letterDiv = document.createElement("div");
+            letterDiv.innerHTML = sliderContent[sliderCounter][i];
+
+            // Correctly handle spaces
+            if (letterDiv.innerHTML === " ") {
+                letterDiv.innerHTML = "&nbsp;";
+            }
+
+            letterDiv.classList.add("start", "animation");
+            letterDiv.style.animationDelay = (i / 10) + "s";
+            sliderValue.appendChild(letterDiv);
+        }
+        sliderCounter++;
     }
-    sliderCounter++;
-}
 
-slider();
-setInterval(slider, 2000);  // Adjusted interval time
+    slider();
+    setInterval(slider, 2000);  // Adjust interval time
 
-$('.menu-btn').click(function () {
-    $('.menu').toggleClass("active");
-    $('.menu-btn i').toggleClass("active");
+    // Ensure jQuery is available
+    if (typeof $ !== 'undefined') {
+        $('.menu-btn').click(function () {
+            $('.menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        });
+    } else {
+        console.error('jQuery is not defined. Ensure it is included in your project.');
+    }
+
+    // Ensure ScrollReveal is available and correctly initialized
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal({
+            origin: "top",
+            distance: "80px",
+            duration: 2000,
+            reset: true,
+        });
+
+        sr.reveal(".featured-text", {});
+        sr.reveal(".home-img", { delay: 100 });
+        sr.reveal(".heading", {});
+    } else {
+        console.error('ScrollReveal is not defined. Ensure it is included in your project.');
+    }
 });
-
-const sr = ScrollReveal({
-    origin: "top",
-    distance: "80px",
-    duration: 2000,
-    reset: true,
-});
-
-sr.reveal(".featured-text", {});
-sr.reveal(".home-img", { delay: 100 });
-sr.reveal(".heading", {});
