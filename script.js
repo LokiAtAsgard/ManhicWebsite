@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var sliderContent = [
         "Elexis Eon Clark",
         "an IT student",
-        "Web Developer Newb",
-        "a Full-Stack Novice",
+        "Coding Newbie",
+        "Full-Stack Novice",
     ];
 
     var sliderValue = document.querySelector("#SliderValue");
