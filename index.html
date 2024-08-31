@@ -181,20 +181,21 @@
     </section>
             <!--Contact information-->
     <section class="contact" id="contact">
-        <h2 class="heading"> Contact <span>Me</span></h2>
-        <form id="contactForm">
-            <div class="input-box">
-                <input type="text" id="fullName" placeholder="Full Name" required>
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
-            <div class="input-box">
-                <input type="tel" id="phoneNumber" placeholder="Phone Number">
-                <input type="text" id="subject" placeholder="Subject">
-            </div>
-            <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <input type="submit" value="Send Message" class="btn-t">
-        </form>
+    <h2 class="heading"> Contact <span>Me</span></h2>
+    <form id="contactForm" action="mailto:elexis.eon.clark@gmail.com" method="GET" enctype="text/plain">
+        <div class="input-box">
+            <input type="text" id="fullName" name="Full Name" placeholder="Full Name" required>
+            <input type="email" id="email" name="Email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+            <input type="tel" id="phoneNumber" name="Phone Number" placeholder="Phone Number">
+            <input type="text" id="subject" name="Subject" placeholder="Subject">
+        </div>
+        <textarea id="message" name="Message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message" class="btn-t">
+    </form>
     </section>
+
 
 
     
